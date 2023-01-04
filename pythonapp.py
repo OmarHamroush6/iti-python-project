@@ -1,6 +1,8 @@
 import re
+from datetime import date
 
-regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+email_regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+date_regex = re.compile("^[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}$")
 
 def check_user_input(input):
     try:
@@ -17,7 +19,7 @@ def check_user_input(input):
 
 
 def isValid(email):
-    if re.fullmatch(regex, email):
+    if re.fullmatch(email_regex, email):
         return True
 
     print("Invalid email")
