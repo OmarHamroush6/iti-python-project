@@ -1,3 +1,7 @@
+import re
+
+regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
+
 def check_user_input(input):
     try:
         #convert it into integer
@@ -10,11 +14,6 @@ def check_user_input(input):
             return "float"
         except ValueError:
             return "string"
-
-
-import re
-
-regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
 
 
 def isValid(email):
