@@ -3,6 +3,8 @@ import re
 email_regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
 date_regex = re.compile("^[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}$")     #dd/mm/yyyy
 
+################################################################
+
 def check_user_input(input):
     try:
         #convert it into integer
@@ -16,6 +18,7 @@ def check_user_input(input):
         except ValueError:
             return "string"
 
+#############################################################################
 
 def isValid(email):
     if re.fullmatch(email_regex, email):
@@ -121,6 +124,7 @@ def register():
             print(" account created successfully <3 ")
             break
 
+#####################################################################
 
 def login():
     email = input("please enter your email : ")
@@ -148,6 +152,7 @@ def login():
         else:
             continue
 
+#################################################################
 
 while True:
     login_or_rigister = input("press 1 if you want to login \n press 2 if you want to register")
