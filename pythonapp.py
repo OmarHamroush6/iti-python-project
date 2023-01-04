@@ -1,7 +1,7 @@
 import re
 
 email_regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
-date_regex = re.compile("^[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}$")
+date_regex = re.compile("^[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}$")     #dd/mm/yyyy
 
 def check_user_input(input):
     try:
@@ -31,7 +31,43 @@ def checkdate(date):
     print("wrong date format")
     return False
 
+##################################################3
 
+def create_campaign():
+    campaign_title = input("please enter your campaign title : ")
+    while check_user_input(campaign_title) != "string" or not campaign_title:
+        print("please enter a valid name \nNOTE : don't use numbers or empty value")
+        campaign_title = input("please enter your campaign title : ")
+
+    campaign_details = input("please enter your campaign details : ")
+    while check_user_input(campaign_details) != "string" or not campaign_details:
+        print("please enter a valid name \nNOTE : don't use numbers or empty value")
+        campaign_details = input("please enter your campaign details : ")
+
+    date = input("please enter your start date in this format dd/mm/yyyy : ")
+    while (not checkdate(date)):
+        date = input("please enter your start date in this format dd/mm/yyyy : ")
+
+    date = input("please enter your end date in this format dd/mm/yyyy : ")
+    while (not checkdate(date)):
+        date = input("please enter your end date in this format dd/mm/yyyy : ")
+
+    target = input("please enter your target : ")
+    while check_user_input(target) != "number" or target == False:
+        print("please enter a valid target  \nNOTE : don't use letters or empty value")
+        target = input("please enter your target : ")
+
+    while True:
+        done = input("please enter done to create campaign : ")
+        if done == "done":
+            fileobj = open("campinfo.txt", "a")
+            campinfo = f"{campaign_title}:{campaign_details}:{date}:{date}:{target} \n "
+            fileobj.write(campinfo)
+            fileobj.close()
+            print(" campaign created successfully <3 ")
+            break
+
+##########################################################################################################
 
 def register():
     first_name = input("please enter your first name : ")
