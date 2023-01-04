@@ -1,5 +1,4 @@
 import re
-from datetime import date
 
 email_regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
 date_regex = re.compile("^[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}$")
@@ -24,6 +23,14 @@ def isValid(email):
 
     print("Invalid email")
     return False
+
+def checkdate(date):
+    if re.fullmatch(date_regex, date):
+        return True
+
+    print("wrong date format")
+    return False
+
 
 
 def register():
