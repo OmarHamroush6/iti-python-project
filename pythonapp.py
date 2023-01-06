@@ -27,8 +27,15 @@ def isValid(email):
     print("Invalid email")
     return False
 
-def checkdate(date):
-    if re.fullmatch(date_regex, date):
+def checkstartdate(start_date):
+    if re.fullmatch(date_regex, start_date):
+        return True
+
+    print("wrong date format")
+    return False
+
+def checkenddate(end_date):
+    if re.fullmatch(date_regex, end_date):
         return True
 
     print("wrong date format")
@@ -47,13 +54,13 @@ def create_campaign():
         print("please enter a valid name \nNOTE : don't use numbers or empty value")
         campaign_details = input("please enter your campaign details : ")
 
-    sdate = input("please enter your start date in this format dd/mm/yyyy : ")
-    while (not checkdate(date)):
-        sdate = input("please enter your start date in this format dd/mm/yyyy : ")
+    start_date = input("please enter your start date in this format dd/mm/yyyy : ")
+    while (not checkstartdate(start_date)):
+        start_date = input("please enter your start date in this format dd/mm/yyyy : ")
 
-    edate = input("please enter your end date in this format dd/mm/yyyy : ")
-    while (not checkdate(date)):
-        edate = input("please enter your end date in this format dd/mm/yyyy : ")
+    end_date = input("please enter your end date in this format dd/mm/yyyy : ")
+    while (not checkenddate(end_date)):
+        end_date = input("please enter your end date in this format dd/mm/yyyy : ")
 
     target = input("please enter your target : ")
     while check_user_input(target) != "number" or target == False:
@@ -64,7 +71,7 @@ def create_campaign():
         done = input("please enter done to create campaign : ")
         if done == "done":
             fileobj = open("campinfo.txt", "a")
-            campinfo = f"{campaign_title}:{campaign_details}:{sdate}:{edate}:{target} \n "
+            campinfo = f"{campaign_title}:{campaign_details}:{start_date}:{end_date}:{target} \n "
             fileobj.write(campinfo)
             fileobj.close()
             print(" campaign created successfully <3 ")
@@ -98,7 +105,7 @@ def campaign_main_menu():
     if campaign_menu == "4":
         delete_campaign()
     else:
-        continue
+        breakpoint()
 
 ##########################################################################################################
 
