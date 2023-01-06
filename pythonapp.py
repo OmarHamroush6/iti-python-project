@@ -156,6 +156,17 @@ def edit_campaign():
 #####################################################################################
 
 def delete_campaign():
+    fileobj = open("campinfo.txt", "r")
+    users = fileobj.readlines()
+
+    with open("campinfo.txt", "w") as f:
+        for u in users:
+            usrinfo = u.strip("\n")
+            userinfo = usrinfo.split(":")
+            if userinfo[0] == em and userinfo[1] == project_name in u:
+                f.write(" \n")
+            else:
+                f.write(u)
 
 ##############################################################################
 
