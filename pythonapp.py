@@ -105,7 +105,7 @@ def campaign_main_menu():
     if campaign_menu == "4":
         delete_campaign()
     else:
-        breakpoint()
+        exit()
 
 ##########################################################################################################
 
