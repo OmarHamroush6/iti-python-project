@@ -87,6 +87,71 @@ def view_campaigns():
 ##############################################################################################
 
 def edit_campaign():
+    campaign_title = input("please enter the name of the campaign : ")
+    try:
+        fileobj = open("campinfo.txt", "r")
+        campinfos = fileobj.readlines()
+        for p in campinfos:
+            campinfo = p.strip("\n")
+            campinfo = campinfo.split(":")
+            newline = []
+            if campinfo[0] == username:
+                if campinfo[1] == campaign_title:
+                    while True:
+                        edit = input(
+                            "editing:\n 1 to edit title\n 2 to edit details\n 3 to edit start date\n 4 to edit end date\n 5 to edit target\n choose 6 if you want to exit\n")
+                        if edit == "1":
+                            oldtitle = campinfo[1]
+                            newtitle = input(" please enter new campaign title : ")
+                            newline.append(p.replace(oldtitle, newtitle))
+                            with open("campinfo.txt", "w") as f:
+                                for line in newline:
+                                    f.writelines(line)
+                                    print("campaign title updated sucessfully")
+                        elif edit == "2":
+                            olddetails = campinfo[2]
+                            newdetails = input(" please enter new campaign details : ")
+                            newline.append(p.replace(olddetails, newdetails))
+                            with open("campinfo.txt", "w") as f:
+                                for line in newline:
+                                    f.writelines(line)
+                                    print("campaign details updated sucessfully")
+                        elif edit == "3":
+                            old_start_date = campinfo[3]
+                            new_start_date = input(" please enter new campaign's start date : ")
+                            newline.append(p.replace(old_start_date, new_start_date))
+                            with open("campinfo.txt", "w") as f:
+                                for line in newline:
+                                    f.writelines(line)
+                                    print("campaign's start date updated sucessfully ")
+                        elif edit == "4":
+                            old_end_date = campinfo[4]
+                            new_end_date = input(" please enter new campaign's end date : ")
+                            newline.append(p.replace(old_end_date, new_end_date))
+                            with open("campinfo.txt", "w") as f:
+                                for line in newline:
+                                    f.writelines(line)
+                                    print("campaign's end date updated sucessfully")
+                        elif edit == "5":
+                            oldtarget = campinfo[5]
+                            newtarget = input(" please enter new campaign target : ")
+                            newline.append(p.replace(oldtarget, newtarget))
+                            with open("campinfo.txt", "w") as f:
+                                for line in newline:
+                                    f.writelines(line)
+                                    print("campaign target updated sucessfully")
+                        elif edit == "6":
+                            break
+                        else:
+                            print("invalid input")
+                            edit = input(
+                                "what do you want to edit: \n choose 1 if you want to edit title \n choose 3 if you want to edit details \n choose 3 if you want to edit budget \n choose 4 if you want to edit start date \n choose 5 if you want to edit end date\n choose 6 if you want to exit \n")
+
+                else:
+                    print(f" user {projectinfo[0]} don't have any projects with name {projectname} please try again")
+                break
+    except(Exception):
+        print(" no project found ")
 
 #####################################################################################
 
