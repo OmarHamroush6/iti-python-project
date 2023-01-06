@@ -71,7 +71,7 @@ def create_campaign():
         done = input("please enter done to create campaign : ")
         if done == "done":
             fileobj = open("campinfo.txt", "a")
-            campinfo = f"{campaign_title}:{campaign_details}:{start_date}:{end_date}:{target} \n "
+            campinfo = f"{campaign_title}:{campaign_details}:{start_date}:{end_date}:{target}\n "
             fileobj.write(campinfo)
             fileobj.close()
             print(" campaign created successfully <3 ")
@@ -95,7 +95,7 @@ def delete_campaign():
 ##############################################################################
 
 def campaign_main_menu():
-    campaign_menu = input("press 1 to create campaign \n press 2 to view campaigns \n press 3 to edit campaign \n press 4 to delete campaign")
+    campaign_menu = input("press 1 to create campaign\n press 2 to view campaigns\n press 3 to edit campaign\n press 4 to delete campaign")
     if campaign_menu == "1":
         create_campaign()
     if campaign_menu == "2":
@@ -139,7 +139,7 @@ def register():
         done = input("please enter done to create account : ")
         if done == "done":
             fileobj = open("usersinfo.txt", "a")
-            usersinfo = f"{first_name}:{last_name}:{email}:{password}:{phone} \n "
+            usersinfo = f"{first_name}:{last_name}:{email}:{password}:{phone}\n "
             fileobj.write(usersinfo)
             fileobj.close()
             print(" account created successfully <3 ")
@@ -177,7 +177,7 @@ def login():
 #################################################################
 
 while True:
-    login_or_rigister = input("press 1 if you want to login \n press 2 if you want to register")
+    login_or_rigister = input("press 1 if you want to login\n press 2 if you want to register")
     if login_or_rigister == "1":
         login()
     if login_or_rigister == "2":
