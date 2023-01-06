@@ -47,13 +47,13 @@ def create_campaign():
         print("please enter a valid name \nNOTE : don't use numbers or empty value")
         campaign_details = input("please enter your campaign details : ")
 
-    date = input("please enter your start date in this format dd/mm/yyyy : ")
+    sdate = input("please enter your start date in this format dd/mm/yyyy : ")
     while (not checkdate(date)):
-        date = input("please enter your start date in this format dd/mm/yyyy : ")
+        sdate = input("please enter your start date in this format dd/mm/yyyy : ")
 
-    date = input("please enter your end date in this format dd/mm/yyyy : ")
+    edate = input("please enter your end date in this format dd/mm/yyyy : ")
     while (not checkdate(date)):
-        date = input("please enter your end date in this format dd/mm/yyyy : ")
+        edate = input("please enter your end date in this format dd/mm/yyyy : ")
 
     target = input("please enter your target : ")
     while check_user_input(target) != "number" or target == False:
@@ -64,7 +64,7 @@ def create_campaign():
         done = input("please enter done to create campaign : ")
         if done == "done":
             fileobj = open("campinfo.txt", "a")
-            campinfo = f"{campaign_title}:{campaign_details}:{date}:{date}:{target} \n "
+            campinfo = f"{campaign_title}:{campaign_details}:{sdate}:{edate}:{target} \n "
             fileobj.write(campinfo)
             fileobj.close()
             print(" campaign created successfully <3 ")
@@ -88,6 +88,17 @@ def delete_campaign():
 ##############################################################################
 
 def campaign_main_menu():
+    campaign_menu = input("press 1 to create campaign \n press 2 to view campaigns \n press 3 to edit campaign \n press 4 to delete campaign")
+    if campaign_menu == "1":
+        create_campaign()
+    if campaign_menu == "2":
+        view_campaigns()
+    if campaign_menu == "3":
+        edit_campaign()
+    if campaign_menu == "4":
+        delete_campaign()
+    else:
+        continue
 
 ##########################################################################################################
 
@@ -146,6 +157,7 @@ def login():
                 userinfo = userinfo.split(":")
                 if userinfo[2] == email and userinfo[3] == password:
                     print(f"welcome back {userinfo[0]}  <3 ")
+                    campaign_main_menu()
                     break
                 else:
                     print(
@@ -165,3 +177,6 @@ while True:
         register()
     else:
         continue
+
+
+### user after registration should login to be able to view campaign main menu
