@@ -145,7 +145,7 @@ def edit_campaign():
                         else:
                             print("invalid input")
                             edit = input(
-                                "what do you want to edit: \n choose 1 if you want to edit title \n choose 3 if you want to edit details \n choose 3 if you want to edit budget \n choose 4 if you want to edit start date \n choose 5 if you want to edit end date\n choose 6 if you want to exit \n")
+                                "editing:\n 1 to edit title\n 2 to edit details\n 3 to edit start date\n 4 to edit end date\n 5 to edit target\n choose 6 if you want to exit\n")
 
                 else:
                     print(f" user {projectinfo[0]} don't have any projects with name {projectname} please try again")
