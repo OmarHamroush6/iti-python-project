@@ -148,10 +148,10 @@ def edit_campaign():
                                 "editing:\n 1 to edit title\n 2 to edit details\n 3 to edit start date\n 4 to edit end date\n 5 to edit target\n choose 6 if you want to exit\n")
 
                 else:
-                    print(f" user {projectinfo[0]} don't have any projects with name {projectname} please try again")
+                    print(f" user {campinfo[0]} don't have any campaign with name {campaign_title} please try again")
                 break
     except(Exception):
-        print(" no project found ")
+        print(" no campaign found ")
 
 #####################################################################################
 
